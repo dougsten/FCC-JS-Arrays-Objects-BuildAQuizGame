@@ -36,14 +36,14 @@ let randomAnswer;
 let computerAnswer;
 
 function getRandomQuestion(array) {
-  randomQuestion = Math.floor(Math.random()*array.length);
+  randomQuestion = Math.floor(Math.random() * array.length);
   console.log(randomQuestion);
   return array[randomQuestion];
   }
 console.log(getRandomQuestion(questions).question);
  
 function getRandomComputerChoice(answerArr) {
-  randomAnswer = Math.floor(Math.random()*answerArr.length);
+  randomAnswer = Math.floor(Math.random() * answerArr.length);
   computerAnswer = answerArr[randomAnswer];
   return answerArr[randomAnswer];
 }
