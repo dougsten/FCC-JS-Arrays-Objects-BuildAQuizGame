@@ -1,10 +1,10 @@
 let questions = [
-{
+  {
     category: "Science",
     question: "What is the chemical symbol for water?",
     choices: ["H2O", "CO2", "NaCl"],
     answer: "H2O"
-},
+  },
   {
     category: "Math",
     question: "What is the top part of a fraction?",
@@ -31,32 +31,29 @@ let questions = [
   },
 ];
 
-function getRandomQuestion(Arr1) {
-  let randomQuestion = Math.floor(Math.random() * Arr1.length);
-  console.log(Arr1[randomQuestion]);
+let randomQuestion;
+let randomAnswer;
+let computerAnswer;
+
+function getRandomQuestion(array) {
+  randomQuestion = Math.floor(Math.random()*array.length);
   console.log(randomQuestion);
-  return Arr1[randomQuestion];
-};
-
-function getRandomComputerChoice(Arr) {
-    let randomChoiceIndex = Math.floor(Math.random() * Arr.length);
-    let randomAnswerIndex = Math.floor(Math.random() * Arr.length);
-    let computerChoiceIndex = Arr[randomChoiceIndex];
-    let computerChoice = computerChoiceIndex.choices[randomAnswerIndex];
-    console.log(computerChoice);
-    return computerChoice;
+  return array[randomQuestion];
   }
+console.log(getRandomQuestion(questions).question);
+ 
+function getRandomComputerChoice(answerArr) {
+  randomAnswer = Math.floor(Math.random()*answerArr.length);
+  computerAnswer = answerArr[randomAnswer];
+  return answerArr[randomAnswer];
+}
+function getResults(quest, compAnswer) {
+  if(quest.answer === compAnswer) {
+    return "The computer's choice is correct!";
+  } else {
+    return `The computer's choice is wrong. The correct answer is: ${questions[randomQuestion].answer}`;
+  }
+}
 
-let Arr = questions;
-let Arr1 = ["1 What is the chemical symbol for water?", 
-"2 What is the top part of a fraction?",
-"3 What book series did J.K.Rowling write?",
-"4 What is the mist on the grass in the morning called?",
-"5 What is the part of food keeps you healthy called?"
-];
-
-let questionsArr = getRandomQuestion(Arr1);
-console.log(questionsArr);
-let getComputerChoice = getRandomComputerChoice(Arr);
-console.log(getComputerChoice);
-
+console.log(getRandomComputerChoice(questions[randomQuestion].choices));
+console.log(getResults(questions[randomQuestion], computerAnswer));
